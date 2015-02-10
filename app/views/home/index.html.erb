@@ -1,0 +1,34 @@
+<h3>Practice One</h3>
+<%=
+  %Q{
+    A 需要model：
+      1、ZhaoUser／ChaoUser（字段：nick_name, coin_count），
+      2、ZhaoExchangeCode/ChaoExchangeCode(字段：code，coin_count，user_id)
+
+    B User相关页面：index、new、edit、show
+      还有三个操作：new页面点保存后调用create action、
+                    edit页面点保存后调用update action、
+                    show页面给一个删除的button，点击调用destroy action
+      routes配置：
+      get    '/users'          => "users#index",   :as => "users"
+      post   '/users'          => "users#create",  :as => "users"
+      get    '/users/:id'      => "users#show",    :as => "user"
+      put    '/users/:id'      => "users#update",  :as => "user"
+      delete '/users/:id'      => "users#destroy", :as => "user"
+      get    '/users/new'      => "users#new",     :as => "new_user"
+      get    '/users/:id/edit' => "users#edit",    :as => "edit_user"
+
+      PS: use "zhao_users" replace "users" for Zhao
+
+    C ExchangeCode同User,做相应页面
+
+    D 充值页面
+      1、选择用户（在已存在的user里面选择）
+      2、输入充值码
+      3、点击提交，给该用户充值，充值后显示用户当前金币数量
+  }
+%>
+<ul>
+  <li><a href=<%= zhao_path %>>Zhao</a></li>
+  <li><a href=<%= chao_path %>>Chao</a></li>
+</ul>
