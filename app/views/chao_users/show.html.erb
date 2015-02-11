@@ -6,3 +6,7 @@
 <strong>Coin Count:</strong>
 <%= @user.coin_count %><br><br>
 
+<%= link_to 'Back to Index', chao_users_path %>  |
+  <%= link_to 'Edit', edit_chao_user_path(@user) %>  | 
+  <%= link_to 'Destroy', destroy_chao_user_path(@user), :method => :delete , data:{ confirm: 'Are you sure?' } %>
+
