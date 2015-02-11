@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211031855) do
+ActiveRecord::Schema.define(version: 20150211051503) do
+
+  create_table "chao_exchange_codes", force: true do |t|
+    t.string   "code"
+    t.integer  "coin_count"
+    t.integer  "user_id"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chao_exchange_codes", ["user_id"], name: "index_chao_exchange_codes_on_user_id", using: :btree
+
+  create_table "chao_users", force: true do |t|
+    t.string   "nick_name"
+    t.integer  "coin_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "nick_name"
