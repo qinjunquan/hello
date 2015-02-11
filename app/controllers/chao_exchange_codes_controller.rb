@@ -1,0 +1,2 @@
+class ChaoExchangeCodesController < ApplicationController
+end

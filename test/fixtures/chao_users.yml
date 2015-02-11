@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nick_name: MyString
+  coin_count: 1
+
+two:
+  nick_name: MyString
+  coin_count: 1
