@@ -1,0 +1,2 @@
+class ChaoUsersController < ApplicationController
+end
