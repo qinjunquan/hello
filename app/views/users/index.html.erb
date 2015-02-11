@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>用户昵称</th>
+    <th>用户金币</th>
+    <th>操作</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id  %></td>
+      <td><%= user.nick_name %></td>
+      <td><%= user.coin_count %></td>
+      <td>
+        <%= link_to "编辑", edit_user_path(user) %>
+        <%= link_to "查看", user_path(user) %>
+        <%= button_to 'Delete', delete_user_path(user), :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p><a href="<%= new_user_path %>">new user</a></p>

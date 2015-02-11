@@ -1,0 +1,19 @@
+<%= link_to "返回用户管理", users_path %>
+<table>
+  <tr>
+    <td>ID</td>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <td>昵称</td>
+    <td><%= @user.nick_name %></td>
+  </tr>
+  <tr>
+    <td>金币</td>
+    <td><%= @user.coin_count %></td>
+  </tr>
+  <tr>
+    <td><%= link_to "编辑", edit_user_path(@user) %></td>
+    <td><%= button_to 'Delete', delete_user_path(@user), :method => :delete %></td>
+  </tr>
+</table>

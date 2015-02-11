@@ -1,0 +1,6 @@
+<h3>编辑用户</h3>
+<%= form_for @user, :method => :put do |f| %>
+  Nick Name: <%= f.text_field :nick_name %> </br>
+  Coin Count: <%= f.text_field :coin_count %> </br>
+  <%= f.submit %>
+<% end %>

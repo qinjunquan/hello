@@ -6,6 +6,15 @@ Rails.application.routes.draw do
    root 'home#index'
    get '/zhao' => 'home#zhao_index', :as => :zhao
    get '/chao' => 'home#chao_index', :as => :chao
+   get '/vik' => 'home#vik_index', :as => :vik
+
+   get    '/users'          => "users#index",   :as => "users"
+   post   '/users'          => "users#create",  :as => "create_user"
+   get    '/users/new'      => "users#new",     :as => "new_user"
+   get    '/users/:id'      => "users#show",    :as => "user"
+   put    '/users/:id'      => "users#update",  :as => "update_user"
+   delete '/users/:id' => "users#destroy", :as => "delete_user"
+   get    '/users/:id/edit' => "users#edit",    :as => "edit_user"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

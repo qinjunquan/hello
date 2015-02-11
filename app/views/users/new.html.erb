@@ -1,0 +1,5 @@
+<h3>新建用户</h3>
+<%= form_for(User.new) do |f| %>
+  Nick Name: <%= f.text_field :nick_name %>
+  <%= f.submit %>
+<% end %>
