@@ -1,0 +1,12 @@
+<h1>New User</h1>
+<%= form_for @user, url: create_chao_user_path , :method => "post" do |f| %>
+   <p>
+     <%= f.label :nick_name %><br>
+     <%= f.text_field :nick_name %>
+   </p>
+ 
+   <p>
+     <%= f.submit %>
+   </p>
+<% end %>
+

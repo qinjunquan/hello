@@ -16,6 +16,15 @@ Rails.application.routes.draw do
    delete '/users/:id' => "users#destroy", :as => "delete_user"
    get    '/users/:id/edit' => "users#edit",    :as => "edit_user"
 
+  # chao_users
+   get  '/chao_users/new'      => "chao_users#new",    :as => "new_chao_user"
+   post '/chao_users'          => "chao_users#create", :as => "create_chao_user"
+   get  '/chao_users/:id'      => "chao_users#show",   :as => "chao_user"
+   get  '/chao_users'          => "chao_users#index",  :as => "chao_users"
+   get  '/chao_users/:id/edit' => "chao_users#edit" ,  :as => "edit_chao_user"
+   put  '/chao_users/:id'      => "chao_users#update", :as => "update_chao_user"
+   delete '/chao_users/:id'    => "chao_users#destroy",:as => "destroy_chao_user"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

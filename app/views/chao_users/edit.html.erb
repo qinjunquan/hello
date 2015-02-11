@@ -1,0 +1,13 @@
+<h1>Edit User</h1>
+
+<%= form_for @user, url: update_chao_user_path(@user), :method => :put do |f| %>
+   <p> 
+     <%= f.label :nick_name %><br>
+     <%= f.text_field :nick_name %>
+   </p>
+ 
+   <p> 
+     <%= f.submit %>
+   </p>
+ <% end %>
+
