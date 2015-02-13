@@ -1,0 +1,22 @@
+<h1>All ExchangeCode</h1>
+<%= link_to 'New ExchangeCode', new_chao_exchange_code_path %>  |
+  <%= link_to 'Home', :root %>
+<table>
+  <tr>
+	<th>Exchange Code</th>
+	<th>Coin  Count  </th>
+	<th>User Id</th>  
+    <th>Date</th>  
+  </tr>
+  <% @exchange_codes.each do |exchange_code| %>
+    <tr>
+  	  <td><%= exchange_code.code %></td>
+  	  <td><%= exchange_code.coin_count %></td>
+  	  <td><%= exchange_code.user_id %></td>
+ 	  <td><%= exchange_code.date %></td>
+ 	  <td><%= link_to 'Show', chao_exchange_code_path(exchange_code) %></td>
+ 	  <td><%= link_to 'Edit', edit_chao_exchange_code_path(exchange_code) %></td>
+	  <td><%= link_to 'Destroy', destroy_chao_exchange_code_path(exchange_code),:method => :delete, data:{ confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>

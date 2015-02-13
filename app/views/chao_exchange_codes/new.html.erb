@@ -1,0 +1,14 @@
+<h1>Recharging Online</h1>
+
+<%= form_tag(:action => :create, :method => :post) do %>
+
+  <p>
+    <%= label_tag(:coin_count) %><br>
+    <%= text_field_tag(:coin_count) %>
+  </p> 
+  <p>
+    <%= submit_tag %>
+  </p>
+
+<% end %>
+<%= link_to 'Back',chao_exchange_codes_path %>

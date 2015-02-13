@@ -25,6 +25,16 @@ Rails.application.routes.draw do
    put  '/chao_users/:id'      => "chao_users#update", :as => "update_chao_user"
    delete '/chao_users/:id'    => "chao_users#destroy",:as => "destroy_chao_user"
 
+  # chao_exchange_codes
+   get  '/chao_exchange_codes/new'     => "chao_exchange_codes#new",    :as => "new_chao_exchange_code"
+   get  '/chao_exchange_codes/test'    => "chao_exchange_codes#test"
+   get  '/chao_exchange_codes/:id'     => "chao_exchange_codes#show",   :as => "chao_exchange_code"  	
+   get  '/chao_exchange_codes'         => "chao_exchange_codes#index",  :as => "chao_exchange_codes"
+   post '/chao_exchange_codes'         => "chao_exchange_codes#create", :as => "create_chao_exchange_code"
+   get  '/chao_exchange_codes/:id/edit'=> "chao_exchange_codes#edit",   :as => "edit_chao_exchange_code"
+   put  '/chao_exchange_codes/:id'     => "chao_exchange_codes#update", :as => "update_chao_exchange_code"
+   delete '/chao_exchange_code/:id'    => "chao_exchange_codes#destroy",:as => "destroy_chao_exchange_code"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
