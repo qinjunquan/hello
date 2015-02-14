@@ -10,4 +10,8 @@ class ChaoExchangeCode < ActiveRecord::Base
     end
     self.code = new_code
   end
+
+  def get_code
+    
+  end
 end

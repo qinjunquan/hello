@@ -35,6 +35,43 @@ class ChaoExchangeCodesController < ApplicationController
     redirect_to chao_exchange_codes_path
   end
 
+  def exchange 
+  end
+
+
+  def recharge
+	@user = ChaoUser.find_by_nick_name(params[:nick_name])
+    @exchange_code = ChaoExchangeCode.find_by_code(params[:code])
+    if @user.blank?
+ 	  render 'exchange'
+	else
+ 	  if @exchange_code.blank?
+	    render 'exchange'
+	  else
+ 	    if @exchange_code.user_id.present?
+ 	      render 'exchange'
+        else
+          @user.coin_count += @exchange_code.coin_count
+		  @exchange_code.user_id = @user.id
+ 		  @exchange_code.date = Time.now
+		  @user.save
+		  @exchange_code.save
+ 		  redirect_to record_chao_users_path
+ 		end
+ 	  end
+    end
+  end
+
+  def record
+	@records = ChaoExchangeCode.where("user_id is not null")
+    @user = ChaoUser.all
+    #@records.each do |recode|
+	#  if recode.user_id.present?
+	#	record << @user_record
+	#  end
+    #end
+  end
+
 private
   def code_params
 	params.require(:chao_exchange_code).permit(:code,:coin_count)
