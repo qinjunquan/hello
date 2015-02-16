@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    get '/chao' => 'home#chao_index', :as => :chao
    get '/vik' => 'home#vik_index', :as => :vik
 
+   get    '/users/check_name' => "users#check_name"
    get    '/users'          => "users#index",   :as => "users"
    post   '/users'          => "users#create",  :as => "create_user"
    get    '/users/new'      => "users#new",     :as => "new_user"

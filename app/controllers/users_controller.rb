@@ -1,4 +1,4 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   def index
@@ -33,5 +33,13 @@ class UsersController < ActionController::Base
     user = User.find(params[:id])
     user.destroy if user.present?
     redirect_to users_path
+  end
+
+  def check_name
+    if User.find_by_nick_name(params[:nick_name]).present?
+      render :json => { :is_exist => true }
+    else
+      render :json => { :is_exist => false }
+    end
   end
 end

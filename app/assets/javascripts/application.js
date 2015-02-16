@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require app.js
+//= require user.js
+
+$(document).ready(function(){
+  app.global.init();
+  app.user.init();
+});
