@@ -1,7 +1,6 @@
 <h1>Exchange</h1>
 
-<%= form_tag(:action => :recharge, :method => :post ) do %>
-  <p>
+<%= form_tag(chao_recharge_path, :method => :post ) do %>
     <%= label_tag :nick_name %><br>
     <%= text_field_tag :nick_name %>  <%= flash["user_error"] if flash["user_error"].present? %> 
   </p>
@@ -13,7 +12,7 @@
     <%= flash["code_user_id"]  if flash["code_user_id"].present? %>
   </p> 
   <p>
-    <%= submit_tag %>
+    <%= submit_tag :Recharge %>
   </p>
 <% end %>
 (Query the exchange record.)<a href=<%= record_chao_users_path %>>The Record</a>

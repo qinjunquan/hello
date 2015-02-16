@@ -53,15 +53,15 @@ class ChaoExchangeCodesController < ApplicationController
     @exchange_code = ChaoExchangeCode.find_by_code(params[:code])
     if @user.blank?
       flash["user_error"] = "Nick Name not exist/can't be nir."
- 	  render 'exchange'
+ 	  redirect_to exchange_path
 	else
  	  if @exchange_code.blank?
         flash["code_error"] = "ExchangeCode not exist."
-	    render 'exchange'
+	    redirect_to exchange_path
 	  else
  	    if @exchange_code.user_id.present?
           flash["code_user_id"] = "The ExchangeCode had been used."
- 	      render 'exchange'
+ 	       redirect_to exchange_path
         else
           @user.coin_count += @exchange_code.coin_count
 		  @exchange_code.user_id = @user.id
@@ -72,9 +72,9 @@ class ChaoExchangeCodesController < ApplicationController
  		end
  	  end
     end
-    flash["user_error"] = ""
-	flash["code_error"] = ""
-    flash["code_user_id"]= ""
+    #flash["user_error"] = ""
+	#flash["code_error"] = ""
+    #flash["code_user_id"]= ""
   end
 
   def record

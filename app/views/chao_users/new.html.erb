@@ -2,7 +2,7 @@
 <%= form_for @user, url: create_chao_user_path , :method => "post" do |f| %>
    <p>
      <%= f.label :nick_name %><br>
-     <%= f.text_field :nick_name %> <%= @user.errors.messages[:nick_name][0] if @user.errors.messages[:nick_name].present? %>
+     <%= f.text_field :nick_name %> <%= flash["user_error"] if flash["user_error"].present? %>
    </p>
 
    <p>

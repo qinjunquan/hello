@@ -9,7 +9,8 @@ class ChaoUsersController < ApplicationController
     if @user.save
       redirect_to @user
 	else
-	  render 'new'
+	  flash["user_error"] = "Name can't be nir."
+	  redirect_to new_chao_user_path
 	end
   end
 
@@ -30,7 +31,8 @@ class ChaoUsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
 	else
-	  render 'edit'
+      flash["user_error"] = "name can't be nir."
+	  redirect_to edit_chao_user_path
  	end
   end
 

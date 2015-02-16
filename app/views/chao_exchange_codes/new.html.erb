@@ -6,7 +6,7 @@
     <%= f.text_field :coin_count %> <%= @exchange_code.errors.messages[:coin_count][0] if @exchange_code.errors.messages.present? %>
   </p> 
   <p>
-    <%= f.submit %>
+    <%= f.submit :Generate_code %>
   </p>
 
 <% end %>
