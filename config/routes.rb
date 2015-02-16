@@ -18,7 +18,9 @@ Rails.application.routes.draw do
    get    '/users/:id/edit' => "users#edit",    :as => "edit_user"
 
   # chao_users
+   get  '/chao_users/check_name' => "chao_users#check_name"
    get  '/chao_users/new'      => "chao_users#new",    :as => "new_chao_user"
+   get  '/chao_users/new_js'      => "chao_users#new_js",    :as => "new_js_chao_user"
    post '/chao_users'          => "chao_users#create", :as => "create_chao_user"
    get  '/chao_users/:id'      => "chao_users#show",   :as => "chao_user"
    get  '/chao_users'          => "chao_users#index",  :as => "chao_users"

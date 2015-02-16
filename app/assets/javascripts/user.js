@@ -19,11 +19,14 @@ app.user = {
 
     if($("#user_nick_name").val() == ""){
       $("#s-message").text("昵称不能为空");
-      return false;
+      return false; 
     }
   },
 
   checkNickName : function() {
+    if($("#user_nick_name").val() == ""){
+      return false; 
+    }
     $.ajax({
       url : "/users/check_name",
       data : {

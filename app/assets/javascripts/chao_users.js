@@ -1,0 +1,2 @@
+app.chao_user = { 
+}

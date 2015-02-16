@@ -4,13 +4,25 @@ class ChaoUsersController < ApplicationController
     @user = ChaoUser.new
   end
   
+  def new_js
+    @user = ChaoUser.new
+  end
+
+  def check_name
+	if ChaoUser.find_by_nick_name(params[:nick_name]).present?
+	  render :json => { :is_exist => true }
+	else
+	  render :json => { :is_exist => false }
+	end
+  end
+
   def create
     @user = ChaoUser.new(user_params)
     if @user.save
       redirect_to @user
 	else
 	  flash["user_error"] = "Name can't be nir."
-	  redirect_to new_chao_user_path
+	  redirect_to new_js_chao_user_path
 	end
   end
 
