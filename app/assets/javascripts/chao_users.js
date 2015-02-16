@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 app.chao_user = { 
   init : function() { 
     this.initStatus();
@@ -43,17 +42,4 @@ app.chao_user = {
          alert("Sorry,It is Error.")
 	  }
 	})
-=======
-app.chao_user = {
-  init : function() {
-    this.initStatus();
-    this.bindingEvents();
-  },
-
-  initStatus : function() {
-  },
-
-  bindingEvents : function() {
->>>>>>> e3caa7ad51feba2ca77e44b942a623c04098c6fc
-  }
 }
