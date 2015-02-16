@@ -1,7 +1,9 @@
 app.user = {
   init : function() {
-    this.initStatus();
-    this.bindingEvents();
+    if($("#s-user-new").get(0)){
+      this.initStatus();
+      this.bindingEvents();
+    }
   },
 
   initStatus : function() {
@@ -19,13 +21,13 @@ app.user = {
 
     if($("#user_nick_name").val() == ""){
       $("#s-message").text("昵称不能为空");
-      return false; 
+      return false;
     }
   },
 
   checkNickName : function() {
     if($("#user_nick_name").val() == ""){
-      return false; 
+      return false;
     }
     $.ajax({
       url : "/users/check_name",

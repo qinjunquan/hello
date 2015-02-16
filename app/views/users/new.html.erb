@@ -1,6 +1,8 @@
-<h3>新建用户</h3>
-<%= form_for(User.new) do |f| %>
-  Nick Name: <%= f.text_field :nick_name %>
-  <label id="s-message"></label></br>
-  <%= f.submit :class => "s-user-submit" %>
-<% end %>
+<div id="s-user-new">
+  <h3>新建用户</h3>
+  <%= form_for(User.new) do |f| %>
+    Nick Name: <%= f.text_field :nick_name %>
+    <label id="s-message"></label></br>
+    <%= f.submit :class => "s-user-submit" %>
+  <% end %>
+</div>
