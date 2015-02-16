@@ -6,8 +6,11 @@ class ChaoUsersController < ApplicationController
   
   def create
     @user = ChaoUser.new(user_params)
-    @user.save
-    redirect_to @user
+    if @user.save
+      redirect_to @user
+	else
+	  render 'new'
+	end
   end
 
   def index
@@ -24,8 +27,11 @@ class ChaoUsersController < ApplicationController
 
   def update
     @user = ChaoUser.find(params[:id])
-    @user.update(user_params)
-    redirect_to @user
+    if @user.update(user_params)
+      redirect_to @user
+	else
+	  render 'edit'
+ 	end
   end
 
   def destroy

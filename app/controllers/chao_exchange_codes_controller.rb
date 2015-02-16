@@ -1,14 +1,18 @@
 class ChaoExchangeCodesController < ApplicationController
 
   def new 
+    @exchange_code = ChaoExchangeCode.new
   end
 
   def create
-    @exchange_code = ChaoExchangeCode.new
-    @exchange_code.coin_count = params[:coin_count]
-    @exchange_code.save
-    redirect_to @exchange_code
-    #@exchange_code.date = Time.now 
+    @exchange_code = ChaoExchangeCode.new(coin_params)
+   #@exchange_code.coin_count = params[:coin_count]
+    if @exchange_code.save
+      redirect_to @exchange_code
+	else
+	  flash["coin_error"] = "The coin must be 10 or 100."
+	 render 'new'
+	end
   end
   
   def show
@@ -25,8 +29,11 @@ class ChaoExchangeCodesController < ApplicationController
 
   def update
 	@exchange_code = ChaoExchangeCode.find(params[:id])
-	@exchange_code.update(code_params)
-    redirect_to @exchange_code
+  	if @exchange_code.update(code_params)
+      redirect_to @exchange_code
+    else
+	  render 'edit'
+    end
   end
 
   def destroy 
@@ -36,6 +43,8 @@ class ChaoExchangeCodesController < ApplicationController
   end
 
   def exchange 
+	@user = ChaoUser.new
+	@exchange_code = ChaoExchangeCode.new
   end
 
 
@@ -43,12 +52,15 @@ class ChaoExchangeCodesController < ApplicationController
 	@user = ChaoUser.find_by_nick_name(params[:nick_name])
     @exchange_code = ChaoExchangeCode.find_by_code(params[:code])
     if @user.blank?
+      flash["user_error"] = "Nick Name not exist/can't be nir."
  	  render 'exchange'
 	else
  	  if @exchange_code.blank?
+        flash["code_error"] = "ExchangeCode not exist."
 	    render 'exchange'
 	  else
  	    if @exchange_code.user_id.present?
+          flash["code_user_id"] = "The ExchangeCode had been used."
  	      render 'exchange'
         else
           @user.coin_count += @exchange_code.coin_count
@@ -60,6 +72,9 @@ class ChaoExchangeCodesController < ApplicationController
  		end
  	  end
     end
+    flash["user_error"] = ""
+	flash["code_error"] = ""
+    flash["code_user_id"]= ""
   end
 
   def record
@@ -73,6 +88,9 @@ class ChaoExchangeCodesController < ApplicationController
   end
 
 private
+  def coin_params
+    params.require(:chao_exchange_code).permit(:coin_count)
+  end
   def code_params
 	params.require(:chao_exchange_code).permit(:code,:coin_count)
   end

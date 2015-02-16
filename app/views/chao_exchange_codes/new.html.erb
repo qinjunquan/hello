@@ -1,13 +1,12 @@
 <h1>Recharging Online</h1>
 
-<%= form_tag(:action => :create, :method => :post) do %>
-
+<%= form_for @exchange_code ,url:create_chao_exchange_code_path ,:method => :post do |f| %>
   <p>
-    <%= label_tag(:coin_count) %><br>
-    <%= text_field_tag(:coin_count) %>
+    <%= f.label :coin_count %><br>
+    <%= f.text_field :coin_count %> <%= @exchange_code.errors.messages[:coin_count][0] if @exchange_code.errors.messages.present? %>
   </p> 
   <p>
-    <%= submit_tag %>
+    <%= f.submit %>
   </p>
 
 <% end %>

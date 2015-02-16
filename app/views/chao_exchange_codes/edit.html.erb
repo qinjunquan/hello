@@ -3,12 +3,12 @@
 <%= form_for @exchange_code, url:update_chao_exchange_code_path(@exchange_code), :method => :put do |f| %>
   <p>
 	<%= f.label :code %><br>
-	<%= f.text_field :code %>
+	<%= f.text_field :code, :readonly => true %> (This attribute not to edit.)
   </p>
   
   <p>
     <%= f.label :coin_count %><br>
-	<%= f.text_field :coin_count %>
+	<%= f.text_field :coin_count %> <%= @exchange_code.errors.messages[:coin_count][0] if @exchange_code.errors.messages.present? %>
   <p>  
 
   <p>
