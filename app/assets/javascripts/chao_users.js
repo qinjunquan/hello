@@ -1,25 +1,26 @@
-app.chao_user = { 
-  init : function() { 
+app.chao_user = {
+  init : function() {
     this.initStatus();
 	this.bindingEvents();
   },
-  
-  initStatus() : function() {
+
+  initStatus : function() {
   },
-  
-  bindingEvents() : function() {
+
+  bindingEvents : function() {
     $("body").on("click", ".s-new-submit", this.validateUserName);
     $("body").on("change", "#chao_user_nick_name", this.checkNickName);
   },
 
   validateUserName : function(){
-	if($("#new-message").text() != ""){ return false;
+	if($("#new-message").text() != ""){
+      return false;
 	}
-    
+
     if($(".chao_user_nick_name").val() == ""){
 	  $("#new-message").text("Nick Name can't be nir.");
 	  return false;
-	}	
+	}
   },
 
   checkNickName : function() {
@@ -32,14 +33,15 @@ app.chao_user = {
 	  type : "GET",
 	  success : function(result) {
 	    if(result.is_exist){
-		  $("#new-message").text("Nick Name had been used."); 
+		  $("#new-message").text("Nick Name had been used.");
 		}
 		else{
 		  $("#new-message").text("");
 		}
-	  }
+	  },
 	  error : function() {
          alert("Sorry,It is Error.")
 	  }
 	})
+  }
 }
