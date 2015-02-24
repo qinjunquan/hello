@@ -3,7 +3,6 @@ app.chao_user = {
     this.initStatus();
 	this.bindingEvents();
   },
-
   initStatus : function() {
   },
 
@@ -17,21 +16,23 @@ app.chao_user = {
       return false;
 	}
 
-    if($(".chao_user_nick_name").val() == ""){
+    if($("#chao_user_nick_name").val() == ""){
 	  $("#new-message").text("Nick Name can't be nir.");
 	  return false;
 	}
   },
 
   checkNickName : function() {
+
 	$.ajax({
 	  url : "/chao_users/check_name",
-	  date : {
+	  data : {
 		"nick_name" : $("#chao_user_nick_name").val(),
 		"authenticity_token" : $("meta[name='csrf-token']").attr("content")
 	  },
 	  type : "GET",
 	  success : function(result) {
+
 	    if(result.is_exist){
 		  $("#new-message").text("Nick Name had been used.");
 		}

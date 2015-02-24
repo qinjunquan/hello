@@ -5,7 +5,7 @@ class ChaoUsersController < ApplicationController
   end
   
   def new_js
-    @user = ChaoUser.new
+	@user = ChaoUser.new
   end
 
   def check_name
