@@ -38,13 +38,17 @@ class ChaoUsersController < ApplicationController
     @user = ChaoUser.find(params[:id])
   end
 
+  def edit_js
+	@user = ChaoUser.find(params[:id])
+  end
+
   def update
     @user = ChaoUser.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
 	else
-      flash["user_error"] = "name can't be nir."
-	  redirect_to edit_chao_user_path
+    #  flash["user_error"] = "name can't be nir."
+	  redirect_to edit_js_chao_user_path
  	end
   end
 

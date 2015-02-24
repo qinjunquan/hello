@@ -25,6 +25,7 @@ Rails.application.routes.draw do
    get  '/chao_users/:id'      => "chao_users#show",   :as => "chao_user"
    get  '/chao_users'          => "chao_users#index",  :as => "chao_users"
    get  '/chao_users/:id/edit' => "chao_users#edit" ,  :as => "edit_chao_user"
+   get  '/chao_users/:id/edit_js' => "chao_users#edit_js" ,  :as => "edit_js_chao_user"
    put  '/chao_users/:id'      => "chao_users#update", :as => "update_chao_user"
    delete '/chao_users/:id'    => "chao_users#destroy",:as => "destroy_chao_user"
 
