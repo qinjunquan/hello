@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # chao_exchange_codes
    get  '/chao_exchange_codes/record'  => "chao_exchange_codes#record" ,:as => "record_chao_users"
    get  '/chao_exchange_codes/new'     => "chao_exchange_codes#new",    :as => "new_chao_exchange_code"
+   get  '/chao_exchange_codes/new_js'     => "chao_exchange_codes#new_js",    :as => "new_js_chao_exchange_code"
    get  '/chao_exchange_codes/exchange'=> "chao_exchange_codes#exchange",:as => "exchange"
    get  '/chao_exchange_codes/get_code'=> "chao_exchange_codes#get_code",:as => "user_get_code"
    get  '/chao_exchange_codes/:id'     => "chao_exchange_codes#show",   :as => "chao_exchange_code"  	

@@ -19,5 +19,6 @@ $(document).ready(function(){
   app.global.init();
   app.user.init();
   app.chao_user.init();
+  app.chao_exchange_code.init();
 });
 

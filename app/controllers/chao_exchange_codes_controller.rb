@@ -4,6 +4,10 @@ class ChaoExchangeCodesController < ApplicationController
     @exchange_code = ChaoExchangeCode.new
   end
 
+  def new_js
+	@exchange_code = ChaoExchangeCode.new
+  end
+
   def create
     @exchange_code = ChaoExchangeCode.new(coin_params)
    #@exchange_code.coin_count = params[:coin_count]
@@ -11,7 +15,7 @@ class ChaoExchangeCodesController < ApplicationController
       redirect_to @exchange_code
 	else
 	  flash["coin_error"] = "The coin must be 10 or 100."
-	 render 'new'
+	  redirect_to new_js_chao_exchange_code_path 
 	end
   end
   
