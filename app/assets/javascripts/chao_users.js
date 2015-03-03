@@ -13,6 +13,7 @@ app.chao_user = {
   },
 
   validateUserName : function(){
+debugger
 	if($("#new-message").text() != ""){
       return false;
 	}
