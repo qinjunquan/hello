@@ -1,0 +1,19 @@
+<h1>Edit ExchangCode</h1>
+
+<%= form_for @exchange_code, url:update_chao_exchange_code_path(@exchange_code), :method => :put do |f| %>
+  <p>
+	<%= f.label :code %><br>
+	<%= f.text_field :code, :readonly => true %> (This attribute not to edit.)
+  </p>
+  
+  <p>
+    <%= f.label :coin_count %><br>
+	<%= f.text_field :coin_count %> <label id="error-message"> </label>
+  <p>  
+
+  <p>
+	<%= f.submit :change_and_commit, :class => "s-edit-code-submit" %>
+  </p>
+
+<% end %>
+<%= link_to 'Back', chao_exchange_codes_path %>

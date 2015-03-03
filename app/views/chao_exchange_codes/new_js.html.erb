@@ -3,7 +3,7 @@
 <%= form_for @exchange_code ,url:create_chao_exchange_code_path ,:method => :post do |f| %>
   <p>
     <%= f.label :coin_count %><br>
-    <%= f.text_field :coin_count %> <label id="new-message"></label>
+    <%= f.text_field :coin_count %> <label id="error-message"></label>
   </p> 
   <p>
     <%= f.submit :Generate_code, :class => "s-new-code-submit" %>

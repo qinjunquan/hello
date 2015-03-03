@@ -38,6 +38,7 @@ Rails.application.routes.draw do
    get  '/chao_exchange_codes/:id'     => "chao_exchange_codes#show",   :as => "chao_exchange_code"  	
    get  '/chao_exchange_codes'         => "chao_exchange_codes#index",  :as => "chao_exchange_codes"
    get  '/chao_exchange_codes/:id/edit'=> "chao_exchange_codes#edit",   :as => "edit_chao_exchange_code"
+   get  '/chao_exchange_codes/:id/edit_js'=> "chao_exchange_codes#edit_js",   :as => "edit_js_chao_exchange_code"
    put  '/chao_exchange_codes/:id'     => "chao_exchange_codes#update", :as => "update_chao_exchange_code"
    delete '/chao_exchange_codes/:id'   => "chao_exchange_codes#destroy",   :as => "destroy_chao_exchange_code"
    post  '/chao_exchange_codes/recharge' => "chao_exchange_codes#recharge", :as => "chao_recharge"

@@ -31,12 +31,16 @@ class ChaoExchangeCodesController < ApplicationController
 	@exchange_code = ChaoExchangeCode.find(params[:id])
   end
 
+  def edit_js
+	@exchange_code = ChaoExchangeCode.find(params[:id])
+  end
+
   def update
 	@exchange_code = ChaoExchangeCode.find(params[:id])
   	if @exchange_code.update(code_params)
       redirect_to @exchange_code
     else
-	  render 'edit'
+	  redirect_to edit_js_chao_exchange_code_path
     end
   end
 
