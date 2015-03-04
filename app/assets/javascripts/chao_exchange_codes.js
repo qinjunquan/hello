@@ -5,16 +5,15 @@ app.chao_exchange_code = {
   },
   
   initStatus : function() {
-debugger
   },
  
   bindingEvents : function() {
 	$("body").on("click", ".s-new-code-submit", this.validateCoin);
 	$("body").on("change", "#chao_exchange_code_coin_count", this.checkCoin);
+	$("body").on("click", ".s-edit-code-submit", this.validateCoin);
   },
  
   validateCoin : function() {
-	debugger
 	if($("#chao_exchange_code_coin_count").val() == "") {
 	  $("#error-message").text("Coin can't be nir");
 	  return false;

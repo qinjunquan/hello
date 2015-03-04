@@ -8,12 +8,11 @@ app.chao_user = {
 
   bindingEvents : function() {
     $("body").on("click", ".s-new-submit", this.validateUserName);
-	$("body").on("click", ".s-edit-submit", this.validateUserName)
+	$("body").on("click", ".s-edit-submit", this.validateUserName);
     $("body").on("change", "#chao_user_nick_name", this.checkNickName);
   },
 
   validateUserName : function(){
-debugger
 	if($("#new-message").text() != ""){
       return false;
 	}

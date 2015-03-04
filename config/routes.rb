@@ -30,10 +30,12 @@ Rails.application.routes.draw do
    delete '/chao_users/:id'    => "chao_users#destroy",:as => "destroy_chao_user"
 
   # chao_exchange_codes
+   get  '/chao_exchange_codes/check_attr' => "chao_exchange_codes#check_attr"
    get  '/chao_exchange_codes/record'  => "chao_exchange_codes#record" ,:as => "record_chao_users"
    get  '/chao_exchange_codes/new'     => "chao_exchange_codes#new",    :as => "new_chao_exchange_code"
    get  '/chao_exchange_codes/new_js'     => "chao_exchange_codes#new_js",    :as => "new_js_chao_exchange_code"
    get  '/chao_exchange_codes/exchange'=> "chao_exchange_codes#exchange",:as => "exchange"
+   get  '/chao_exchange_codes/exchange_js'=> "chao_exchange_codes#exchange_js",:as => "exchange_js"
    get  '/chao_exchange_codes/get_code'=> "chao_exchange_codes#get_code",:as => "user_get_code"
    get  '/chao_exchange_codes/:id'     => "chao_exchange_codes#show",   :as => "chao_exchange_code"  	
    get  '/chao_exchange_codes'         => "chao_exchange_codes#index",  :as => "chao_exchange_codes"

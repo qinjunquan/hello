@@ -55,21 +55,26 @@ class ChaoExchangeCodesController < ApplicationController
 	@exchange_code = ChaoExchangeCode.new
   end
 
+  def exchange_js
+	@user = ChaoUser.new
+	@exchange_code = ChaoExchangeCode.new
+  end
 
   def recharge
+	debugger
 	@user = ChaoUser.find_by_nick_name(params[:nick_name])
     @exchange_code = ChaoExchangeCode.find_by_code(params[:code])
     if @user.blank?
-      flash["user_error"] = "Nick Name not exist/can't be nir."
- 	  redirect_to exchange_path
+      #flash["user_error"] = "Nick Name not exist/can't be nir."
+ 	  redirect_to exchange_js_path
 	else
  	  if @exchange_code.blank?
-        flash["code_error"] = "ExchangeCode not exist."
-	    redirect_to exchange_path
+        #flash["code_error"] = "ExchangeCode not exist."
+	    redirect_to exchange_js_path
 	  else
  	    if @exchange_code.user_id.present?
-          flash["code_user_id"] = "The ExchangeCode had been used."
- 	       redirect_to exchange_path
+         # flash["code_user_id"] = "The ExchangeCode had been used."
+ 	       redirect_to exchange_js_path
         else
           @user.coin_count += @exchange_code.coin_count
 		  @exchange_code.user_id = @user.id
@@ -80,9 +85,6 @@ class ChaoExchangeCodesController < ApplicationController
  		end
  	  end
     end
-    #flash["user_error"] = ""
-	#flash["code_error"] = ""
-    #flash["code_user_id"]= ""
   end
 
   def record
@@ -94,6 +96,25 @@ class ChaoExchangeCodesController < ApplicationController
 	#  end
     #end
   end
+
+  def check_attr
+	@user = ChaoUser.find_by_nick_name(params[:nick_name])
+	@exchange_code = ChaoExchangeCode.find_by_code(params[:code])
+    if(@user.blank?) 
+	  render :json => { :name_is_exist => true, :code_is_exist => false, :code_is_used => false }
+    else
+	  if(@exchange_code.blank?)
+	    render :json => { :name_is_exist => false, :code_is_exist => true, :code_is_used => false }
+	  else
+		if(@exchange_code.user_id.present?)
+		  render :json => { :name_is_exist =>false, :code_is_exist => false, :code_is_used => true }
+		else
+		  render :json => { :name_is_exist =>false, :code_is_exist => false, :code_is_used => false }
+		end
+	  end
+	end
+  end
+
 
 private
   def coin_params

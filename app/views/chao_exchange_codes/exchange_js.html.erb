@@ -1,0 +1,15 @@
+<h1>Exchange</h1>
+<%= form_tag(chao_recharge_path, :method => :post ) do %>
+    <%= label_tag :nick_name %><br>
+    <%= text_field_tag :nick_name %> <label id="name-error-message"></label> 
+  </p>
+
+  <p>
+    <%= label_tag :code %><br>
+    <%= text_field_tag :code %> <label id="code-error-message"></label>
+  </p> 
+  <p>
+    <%= submit_tag  class: "s-exchange-submit" %> 
+  </p>
+<% end %>
+(Query the exchange record.)<a href=<%= record_chao_users_path %>>The Record</a>

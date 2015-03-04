@@ -20,5 +20,6 @@ $(document).ready(function(){
   app.user.init();
   app.chao_user.init();
   app.chao_exchange_code.init();
+  app.chao_user_exchange.init();
 });
 
